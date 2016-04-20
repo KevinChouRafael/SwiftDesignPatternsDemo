@@ -18,6 +18,7 @@
 		53F0D99B1CC7909100903A05 /* AlbumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F0D99A1CC7909000903A05 /* AlbumView.swift */; };
 		53F0D9A01CC7926C00903A05 /* LibraryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F0D99F1CC7926C00903A05 /* LibraryAPI.swift */; };
 		53F0D9A21CC7986A00903A05 /* PersistencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F0D9A11CC7986A00903A05 /* PersistencyManager.swift */; };
+		53F0D9A41CC79ACB00903A05 /* AlbumExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F0D9A31CC79ACB00903A05 /* AlbumExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		53F0D99A1CC7909000903A05 /* AlbumView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumView.swift; sourceTree = "<group>"; };
 		53F0D99F1CC7926C00903A05 /* LibraryAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryAPI.swift; sourceTree = "<group>"; };
 		53F0D9A11CC7986A00903A05 /* PersistencyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistencyManager.swift; sourceTree = "<group>"; };
+		53F0D9A31CC79ACB00903A05 /* AlbumExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 				101DD6D31A052EDE00161F0D /* LaunchScreen.xib */,
 				101DD6C81A052EDE00161F0D /* Supporting Files */,
 				53F0D9A11CC7986A00903A05 /* PersistencyManager.swift */,
+				53F0D9A31CC79ACB00903A05 /* AlbumExtensions.swift */,
 			);
 			path = BlueLibrarySwift;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				101DD6CD1A052EDE00161F0D /* ViewController.swift in Sources */,
+				53F0D9A41CC79ACB00903A05 /* AlbumExtensions.swift in Sources */,
 				101DD6CB1A052EDE00161F0D /* AppDelegate.swift in Sources */,
 				53F0D9A01CC7926C00903A05 /* LibraryAPI.swift in Sources */,
 				101DD6EC1A052F0E00161F0D /* HTTPClient.swift in Sources */,
