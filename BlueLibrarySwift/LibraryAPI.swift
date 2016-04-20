@@ -8,6 +8,8 @@
 
 import Foundation
 
+
+
 class LibraryAPI: NSObject {
     
     //静态变量 sharedInstance。
@@ -22,5 +24,40 @@ class LibraryAPI: NSObject {
         
         return Singleton.instance
     }
+    
+    private let persistencyManager: PersistencyManager
+    private let httpClient: HTTPClient
+    private let isOnline: Bool
+    
+    //Facade ,外观模式，封装了调用细节。
+    override init() {
+        persistencyManager = PersistencyManager()
+        httpClient = HTTPClient()
+        isOnline = false
+        
+        super.init()
+    }
+    
+
+    
+    func getAlbums() -> [Album] {
+        return persistencyManager.getAlbums()
+    }
+    
+    //Facade ,外观模式，封装了调用细节。
+    func addAlbum(album: Album, index: Int) {
+        persistencyManager.addAlbum(album, index: index)  //本地缓存
+        if isOnline {  //网络请求
+            httpClient.postRequest("/api/addAlbum", body: album.description )
+        }
+    }
+    
+    func deleteAlbum(index: Int) {
+        persistencyManager.deleteAlbumAtIndex(index)
+        if isOnline {
+            httpClient.postRequest("/api/deleteAlbum", body: "\(index)")
+        }
+    }
+    
     
 }
