@@ -22,6 +22,7 @@ class Album:NSObject{
         self.genre = genre
         self.coverUrl = coverUrl
         self.year = year
+        
     }
     
     override var description: String {

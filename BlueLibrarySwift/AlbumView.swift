@@ -20,13 +20,17 @@ class AlbumView: UIView {
     init(frame: CGRect, albumCover: String) {
         super.init(frame: frame)
         backgroundColor = UIColor.blackColor()
+        
         coverImage = UIImageView(frame: CGRectMake(5, 5, frame.size.width - 10, frame.size.height - 10))
         addSubview(coverImage)
+        
         indicator = UIActivityIndicatorView()
         indicator.center = center
         indicator.activityIndicatorViewStyle = .WhiteLarge
         indicator.startAnimating()
         addSubview(indicator)
+        
+        NSNotificationCenter.defaultCenter().postNotificationName("BLDownloadImageNotification", object: self, userInfo: ["imageView":coverImage, "coverUrl" : albumCover])
     }
     
     func highlightAlbum(didHighlightView didHighlightView: Bool) {
