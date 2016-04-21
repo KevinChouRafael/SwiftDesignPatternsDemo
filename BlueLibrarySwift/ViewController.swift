@@ -54,9 +54,19 @@ class ViewController: UIViewController{
         
 //        self.showDataForAlbum(currentAlbumIndex)
         
-        scroller.delegate = self
+        loadPreviousState() //加载储存的数据index
+        
+        scroller.delegate = self //加载
         reloadScroller()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(ViewController.saveCurrentState), name: UIApplicationDidEnterBackgroundNotification, object: nil)
 	}
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+
     
     func reloadScroller() {
         allAlbums = LibraryAPI.sharedInstance.getAlbums()
@@ -90,6 +100,18 @@ class ViewController: UIViewController{
 	}
 
 
+    //MARK: Memento Pattern
+    func saveCurrentState() {
+        // When the user leaves the app and then comes back again, he wants it to be in the exact same state
+        // he left it. In order to do this we need to save the currently displayed album.
+        // Since it's only one piece of information we can use NSUserDefaults.
+        NSUserDefaults.standardUserDefaults().setInteger(currentAlbumIndex, forKey: "currentAlbumIndex")
+    }
+    
+    func loadPreviousState() {
+        currentAlbumIndex = NSUserDefaults.standardUserDefaults().integerForKey("currentAlbumIndex")
+        showDataForAlbum(currentAlbumIndex)
+    }
 
 
 }
@@ -150,6 +172,9 @@ extension ViewController: HorizontalScrollerDelegate {
         showDataForAlbum(index)
     }
     
+    func initialViewIndex(scroller: HorizontalScroller) -> Int {
+        return currentAlbumIndex
+    }
 
 }
 
