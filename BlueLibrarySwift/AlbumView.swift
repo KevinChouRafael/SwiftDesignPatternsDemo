@@ -22,7 +22,9 @@ class AlbumView: UIView {
         backgroundColor = UIColor.blackColor()
         
         coverImage = UIImageView(frame: CGRectMake(5, 5, frame.size.width - 10, frame.size.height - 10))
+        coverImage.addObserver(self, forKeyPath: "image", options: NSKeyValueObservingOptions([.New, .Old]), context: nil)
         addSubview(coverImage)
+        
         
         indicator = UIActivityIndicatorView()
         indicator.center = center
@@ -30,7 +32,13 @@ class AlbumView: UIView {
         indicator.startAnimating()
         addSubview(indicator)
         
+
+        
         NSNotificationCenter.defaultCenter().postNotificationName("BLDownloadImageNotification", object: self, userInfo: ["imageView":coverImage, "coverUrl" : albumCover])
+    }
+    
+    deinit {
+        coverImage.removeObserver(self, forKeyPath: "image")
     }
     
     func highlightAlbum(didHighlightView didHighlightView: Bool) {
@@ -38,6 +46,12 @@ class AlbumView: UIView {
             backgroundColor = UIColor.whiteColor()
         } else {
             backgroundColor = UIColor.blackColor()
+        }
+    }
+    
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>) {
+        if keyPath == "image" {
+            indicator.stopAnimating()
         }
     }
     
