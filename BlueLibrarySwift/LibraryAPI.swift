@@ -7,37 +7,40 @@
 //
 
 import Foundation
-
+import UIKit
 
 
 class LibraryAPI: NSObject {
     
-    //静态变量 sharedInstance。
-    class var sharedInstance: LibraryAPI {
+    //静态变量 sharedInstance。  swift1.2之前。
+//    class var sharedInstance: LibraryAPI {
+//
+//        struct Singleton {
+//            
+//            //静态常量
+//            //static 变量是延时加载的。
+//            static let instance = LibraryAPI()
+//        }
+//        
+//        return Singleton.instance
+//    }
+    
+    static let sharedInstance = LibraryAPI()
 
-        struct Singleton {
-            
-            //静态常量
-            //static 变量是延时加载的。
-            static let instance = LibraryAPI()
-        }
-        
-        return Singleton.instance
-    }
     
     private let persistencyManager: PersistencyManager
     private let httpClient: HTTPClient
     private let isOnline: Bool
     
     //Facade ,外观模式，封装了调用细节。
-    override init() {
+    private override init() {
         persistencyManager = PersistencyManager()
         httpClient = HTTPClient()
         isOnline = false
         
         super.init()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector:"downloadImage:", name: "BLDownloadImageNotification", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(LibraryAPI.downloadImage(_:)), name: "BLDownloadImageNotification", object: nil)
     }
     
     deinit {
