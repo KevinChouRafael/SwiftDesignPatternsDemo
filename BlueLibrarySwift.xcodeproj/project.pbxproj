@@ -19,6 +19,7 @@
 		53F0D9A01CC7926C00903A05 /* LibraryAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F0D99F1CC7926C00903A05 /* LibraryAPI.swift */; };
 		53F0D9A21CC7986A00903A05 /* PersistencyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F0D9A11CC7986A00903A05 /* PersistencyManager.swift */; };
 		53F0D9A41CC79ACB00903A05 /* AlbumExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F0D9A31CC79ACB00903A05 /* AlbumExtensions.swift */; };
+		53F0D9A61CC8707B00903A05 /* HorizontalScroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F0D9A51CC8707B00903A05 /* HorizontalScroller.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		53F0D99F1CC7926C00903A05 /* LibraryAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LibraryAPI.swift; sourceTree = "<group>"; };
 		53F0D9A11CC7986A00903A05 /* PersistencyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistencyManager.swift; sourceTree = "<group>"; };
 		53F0D9A31CC79ACB00903A05 /* AlbumExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumExtensions.swift; sourceTree = "<group>"; };
+		53F0D9A51CC8707B00903A05 /* HorizontalScroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HorizontalScroller.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,8 +100,6 @@
 				101DD6D11A052EDE00161F0D /* Images.xcassets */,
 				101DD6D31A052EDE00161F0D /* LaunchScreen.xib */,
 				101DD6C81A052EDE00161F0D /* Supporting Files */,
-				53F0D9A11CC7986A00903A05 /* PersistencyManager.swift */,
-				53F0D9A31CC79ACB00903A05 /* AlbumExtensions.swift */,
 			);
 			path = BlueLibrarySwift;
 			sourceTree = "<group>";
@@ -134,6 +134,7 @@
 			children = (
 				101DD6EB1A052F0E00161F0D /* HTTPClient.swift */,
 				53F0D99F1CC7926C00903A05 /* LibraryAPI.swift */,
+				53F0D9A11CC7986A00903A05 /* PersistencyManager.swift */,
 			);
 			name = API;
 			sourceTree = "<group>";
@@ -142,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				53F0D9981CC78F2100903A05 /* Album.swift */,
+				53F0D9A31CC79ACB00903A05 /* AlbumExtensions.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -150,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				53F0D99A1CC7909000903A05 /* AlbumView.swift */,
+				53F0D9A51CC8707B00903A05 /* HorizontalScroller.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -268,6 +271,7 @@
 				53F0D9A41CC79ACB00903A05 /* AlbumExtensions.swift in Sources */,
 				101DD6CB1A052EDE00161F0D /* AppDelegate.swift in Sources */,
 				53F0D9A01CC7926C00903A05 /* LibraryAPI.swift in Sources */,
+				53F0D9A61CC8707B00903A05 /* HorizontalScroller.swift in Sources */,
 				101DD6EC1A052F0E00161F0D /* HTTPClient.swift in Sources */,
 				53F0D99B1CC7909100903A05 /* AlbumView.swift in Sources */,
 				53F0D9991CC78F2100903A05 /* Album.swift in Sources */,
